@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedro – Social Media & Tráfego</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --verde: #2ECC71;
+      --verde-escuro: #27AE60;
+      --preto: #111111;
+      --cinza-escuro: #1e1e1e;
+      --cinza-medio: #2d2d2d;
+      --cinza-claro: #f5f5f5;
+      --branco: #ffffff;
+      --texto-suave: #aaaaaa;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--preto);
+      color: var(--branco);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      padding: 80px 20px 90px;
+      text-align: center;
+      border-bottom: 2px solid var(--verde);
+    }
+
+    .hero .tag {
+      display: inline-block;
+      background: var(--verde);
+      color: var(--preto);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.2;
+      max-width: 780px;
+      margin: 0 auto 20px;
+    }
+
+    .hero h1 span {
+      color: var(--verde);
+    }
+
+    .hero p {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--texto-suave);
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+
+    .btn-hero {
+      display: inline-block;
+      background: var(--verde);
+      color: var(--preto);
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px 40px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-hero:hover {
+      background: var(--verde-escuro);
+    }
+
+    /* ─── SEÇÃO GENÉRICA ─── */
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--texto-suave);
+      font-size: 15px;
+      max-width: 560px;
+      margin: 0 auto 50px;
+    }
+
+    /* ─── PRA QUEM ─── */
+    .para-quem {
+      background: var(--cinza-escuro);
+    }
+
+    .cards-quem {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .card-quem {
+      background: var(--cinza-medio);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .card-quem .icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .card-quem p {
+      font-size: 14px;
+      color: var(--texto-suave);
+    }
+
+    .card-quem strong {
+      display: block;
+      font-size: 15px;
+      color: var(--branco);
+      margin-bottom: 6px;
+    }
+
+    /* ─── PLANOS ─── */
+    .planos {
+      background: var(--preto);
+    }
+
+    .grid-planos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card-plano {
+      background: var(--cinza-escuro);
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 36px 28px;
+      position: relative;
+      transition: transform 0.2s;
+    }
+
+    .card-plano:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-plano.destaque {
+      border: 2px solid var(--verde);
+    }
+
+    .badge-destaque {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--verde);
+      color: var(--preto);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .plano-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 8px;
+    }
+
+    .plano-nome {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .plano-desc {
+      font-size: 13px;
+      color: var(--texto-suave);
+      margin-bottom: 24px;
+    }
+
+    .plano-preco {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--verde);
+      margin-bottom: 4px;
+    }
+
+    .plano-preco span {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--texto-suave);
+    }
+
+    .plano-indicado {
+      font-size: 12px;
+      color: var(--texto-suave);
+      margin-bottom: 28px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 24px 0;
+    }
+
+    .plano-lista {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .plano-lista li {
+      font-size: 14px;
+      color: #ccc;
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .plano-lista li:last-child {
+      border-bottom: none;
+    }
+
+    .plano-lista li .check {
+      color: var(--verde);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .plano-lista .categoria {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--verde);
+      padding: 12px 0 4px;
+      border-bottom: none;
+    }
+
+    .btn-plano {
+      display: block;
+      text-align: center;
+      background: var(--verde);
+      color: var(--preto);
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-plano:hover {
+      background: var(--verde-escuro);
+    }
+
+    .btn-plano.outline {
+      background: transparent;
+      border: 2px solid var(--verde);
+      color: var(--verde);
+    }
+
+    .btn-plano.outline:hover {
+      background: var(--verde);
+      color: var(--preto);
+    }
+
+    /* ─── ADD-ONS ─── */
+    .addons {
+      background: var(--cinza-escuro);
+    }
+
+    .grid-addons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card-addon {
+      background: var(--cinza-medio);
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 32px 28px;
+    }
+
+    .addon-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .addon-nome {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .addon-desc {
+      font-size: 14px;
+      color: var(--texto-suave);
+      margin-bottom: 20px;
+    }
+
+    .addon-lista {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .addon-lista li {
+      font-size: 14px;
+      color: #ccc;
+      padding: 7px 0;
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .addon-lista li:last-child {
+      border-bottom: none;
+    }
+
+    .addon-lista .check {
+      color: var(--verde);
+      flex-shrink: 0;
+    }
+
+    .addon-preco {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--verde);
+      margin-bottom: 20px;
+    }
+
+    .addon-preco span {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--texto-suave);
+    }
+
+    /* ─── COMPARATIVO ─── */
+    .comparativo {
+      background: var(--preto);
+    }
+
+    .tabela-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead th {
+      background: var(--cinza-medio);
+      padding: 14px 20px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--branco);
+    }
+
+    thead th:first-child {
+      text-align: left;
+    }
+
+    thead th.verde {
+      color: var(--verde);
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    tbody tr:hover {
+      background: #1a1a1a;
+    }
+
+    tbody td {
+      padding: 14px 20px;
+      text-align: center;
+      color: #ccc;
+    }
+
+    tbody td:first-child {
+      text-align: left;
+      color: var(--branco);
+      font-weight: 500;
+    }
+
+    .sim {
+      color: var(--verde);
+      font-size: 18px;
+    }
+
+    .nao {
+      color: #555;
+      font-size: 18px;
+    }
+
+    /* ─── POR QUE EU ─── */
+    .porque-eu {
+      background: var(--cinza-escuro);
+    }
+
+    .grid-motivos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card-motivo {
+      background: var(--cinza-medio);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 24px 20px;
+    }
+
+    .card-motivo .icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .card-motivo strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .card-motivo p {
+      font-size: 13px;
+      color: var(--texto-suave);
+    }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+      border-top: 2px solid var(--verde);
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .cta-final h2 {
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 800;
+      max-width: 640px;
+      margin: 0 auto 16px;
+    }
+
+    .cta-final h2 span {
+      color: var(--verde);
+    }
+
+    .cta-final p {
+      color: var(--texto-suave);
+      font-size: 15px;
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0a0a0a;
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 13px;
+      color: #444;
+    }
+
+    footer span {
+      color: var(--verde);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="tag">Social Media & Tráfego Pago</div>
+    <h1>Pare de postar por postar.<br/><span>Começa a usar o Instagram pra trazer cliente de verdade.</span></h1>
+    <p>Eu sou o Pedro, social media e gestor de tráfego. Te ajudo a organizar teu marketing, ter presença constante e transformar seguidor em venda — sem frescura e sem enrolação.</p>
+    <a href="https://wa.me/SEU_NUMERO" class="btn-hero">👉 Quero falar sobre um plano pra minha empresa</a>
+  </section>
+
+  <!-- ─── PRA QUEM ─── -->
+  <section class="para-quem">
+    <div class="container">
+      <p class="section-label">Pra quem é</p>
+      <h2 class="section-title">Tu se encaixa em algum desses?</h2>
+      <p class="section-sub">Se tu responder sim pra qualquer um desses, eu posso te ajudar.</p>
+      <div class="cards-quem">
+        <div class="card-quem">
+          <div class="icon">😮‍💨</div>
+          <strong>Sem tempo pra conteúdo</strong>
+          <p>Tem negócio pra tocar e não consegue pensar em post todo dia.</p>
+        </div>
+        <div class="card-quem">
+          <div class="icon">📉</div>
+          <strong>Posta e não vê resultado</strong>
+          <p>Conteúdo sai, mas o direct não move e as encomendas não chegam.</p>
+        </div>
+        <div class="card-quem">
+          <div class="icon">👻</div>
+          <strong>Perfil parado</strong>
+          <p>Semanas sem postar nada porque não sabe o que falar ou como aparecer.</p>
+        </div>
+        <div class="card-quem">
+          <div class="icon">🎯</div>
+          <strong>Quer crescer de verdade</strong>
+          <p>Já tem base de clientes e quer usar o digital pra escalar de forma séria.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PLANOS ─── -->
+  <section class="planos" id="planos">
+    <div class="container">
+      <p class="section-label">Planos</p>
+      <h2 class="section-title">Escolhe o plano certo pro teu momento</h2>
+      <p class="section-sub">Três opções, sem enrolação. Cada uma pensada pra um momento diferente do negócio.</p>
+
+      <div class="grid-planos">
+
+        <!-- PLANO BASE -->
+        <div class="card-plano">
+          <p class="plano-tag">Plano 01</p>
+          <h3 class="plano-nome">Presença Digital</h3>
+          <p class="plano-desc">Pra quem quer parar de ficar sumido e ter uma presença mínima funcionando.</p>
+          <div class="plano-preco">R$ 790 <span>/ mês</span></div>
+          <p class="plano-indicado">✔ Ideal para: microempresas, autônomos, artesãos e quem está começando.</p>
+          <hr class="divider"/>
+          <ul class="plano-lista">
+            <li class="categoria">🎨 Artes</li>
+            <li><span class="check">✔</span> 8 artes por mês (templates simples)</li>
+            <li><span class="check">✔</span> Feed, Stories e Carrossel básico</li>
+            <li class="categoria">📢 Tráfego</li>
+            <li><span class="check">✔</span> Impulsionamento leve de até 2 posts</li>
+            <li class="categoria">🗂 Gestão</li>
+            <li><span class="check">✔</span> Calendário básico de conteúdo</li>
+            <li><span class="check">✔</span> Sugestão de dias para postagem</li>
+            <li class="categoria">📊 Relatório</li>
+            <li><span class="check">✔</span> Prints de métricas + 2 observações</li>
+          </ul>
+          <a href="https://wa.me/SEU_NUMERO?text=Quero%20saber%20mais%20sobre%20o%20Plano%20Base" class="btn-plano outline">Quero esse plano</a>
+        </div>
+
+        <!-- PLANO ESSENCIAL -->
+        <div class="card-plano destaque">
+          <div class="badge-destaque">⭐ Mais escolhido</div>
+          <p class="plano-tag">Plano 02</p>
+          <h3 class="plano-nome">Marketing Estruturado</h3>
+          <p class="plano-desc">Base profissional pra quem quer resultado real e não quer mais brincar de Instagram.</p>
+          <div class="plano-preco">R$ 1.200 <span>/ mês</span></div>
+          <p class="plano-indicado">✔ Ideal para: pousadas, comércios estruturados e negócios que querem crescer.</p>
+          <hr class="divider"/>
+          <ul class="plano-lista">
+            <li class="categoria">🎨 Artes profissionais (Pedro)</li>
+            <li><span class="check">✔</span> 8 artes por mês com design profissional</li>
+            <li><span class="check">✔</span> Feed, Carrossel, Stories e Ofertas</li>
+            <li class="categoria">📢 Tráfego</li>
+            <li><span class="check">✔</span> Campanhas no Meta Ads</li>
+            <li><span class="check">✔</span> 1 público principal + otimização básica</li>
+            <li class="categoria">🗂 Gestão</li>
+            <li><span class="check">✔</span> Planejamento mensal de conteúdo</li>
+            <li><span class="check">✔</span> Programação de posts</li>
+            <li class="categoria">📊 Relatório</li>
+            <li><span class="check">✔</span> Alcance, cliques e taxa de conversão</li>
+          </ul>
+          <a href="https://wa.me/SEU_NUMERO?text=Quero%20saber%20mais%20sobre%20o%20Plano%20Essencial" class="btn-plano">Quero esse plano</a>
+        </div>
+
+        <!-- PLANO AVANÇADO -->
+        <div class="card-plano">
+          <p class="plano-tag">Plano 03</p>
+          <h3 class="plano-nome">Performance & Crescimento</h3>
+          <p class="plano-desc">Pra quem já tem movimento e quer acelerar vendas com estratégia reforçada.</p>
+          <div class="plano-preco">R$ 1.800 <span>/ mês</span></div>
+          <p class="plano-indicado">✔ Ideal para: agências, turismo premium e empresas em crescimento acelerado.</p>
+          <hr class="divider"/>
+          <ul class="plano-lista">
+            <li class="categoria">🎨 Artes profissionais (Pedro)</li>
+            <li><span class="check">✔</span> 12 artes por mês com design profissional</li>
+            <li class="categoria">📢 Tráfego avançado</li>
+            <li><span class="check">✔</span> Múltiplos públicos + testes de criativos</li>
+            <li><span class="check">✔</span> Otimização contínua das campanhas</li>
+            <li class="categoria">🗂 Gestão</li>
+            <li><span class="check">✔</span> Planejamento tático de conteúdo</li>
+            <li><span class="check">✔</span> Sugestões de conteúdo para Stories</li>
+            <li class="categoria">📊 Relatório</li>
+            <li><span class="check">✔</span> Dashboard completo + plano de ação mensal</li>
+            <li class="categoria">🎁 Bônus</li>
+            <li><span class="check">✔</span> 1 consultoria rápida (30min/mês) no WhatsApp</li>
+          </ul>
+          <a href="https://wa.me/SEU_NUMERO?text=Quero%20saber%20mais%20sobre%20o%20Plano%20Avan%C3%A7ado" class="btn-plano outline">Quero esse plano</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ADD-ONS ─── -->
+  <section class="addons" id="addons">
+    <div class="container">
+      <p class="section-label">Serviços extras</p>
+      <h2 class="section-title">Adiciona ao teu plano</h2>
+      <p class="section-sub">Pode contratar junto com qualquer plano ou de forma avulsa.</p>
+
+      <div class="grid-addons">
+
+        <!-- SCRIPT DE VENDAS -->
+        <div class="card-addon">
+          <div class="addon-icon">💬</div>
+          <h3 class="addon-nome">Script de Vendas</h3>
+          <p class="addon-desc">Pra quem já tem seguidor e chamada, mas trava na hora de responder e fechar.</p>
+          <ul class="addon-lista">
+            <li><span class="check">✔</span> Script adaptado pro teu negócio</li>
+            <li><span class="check">✔</span> Como começar a conversa no direct/Whats</li>
+            <li><span class="check">✔</span> Como falar de preço sem desvalorizar</li>
+            <li><span class="check">✔</span> Como contornar objeções</li>
+            <li><span class="check">✔</span> Como conduzir até o fechamento</li>
+            <li><span class="check">✔</span> Usa quantas vezes quiser, pra sempre</li>
+          </ul>
+          <div class="addon-preco">R$ 200 <span>/ único</span></div>
+          <a href="https://wa.me/SEU_NUMERO?text=Quero%20um%20script%20de%20vendas" class="btn-plano">Quero meu script</a>
+        </div>
+
+        <!-- LANDING PAGE -->
+        <div class="card-addon">
+          <div class="addon-icon">🧱</div>
+          <h3 class="addon-nome">Landing Page</h3>
+          <p class="addon-desc">Páginas focadas em conversão, pra campanhas, venda de curso ou captura de leads.</p>
+          <ul class="addon-lista">
+            <li><span class="check">✔</span> Estrutura pensada pra segurar atenção</li>
+            <li><span class="check">✔</span> Texto direto com foco em conversão</li>
+            <li><span class="check">✔</span> Blocos de benefício, prova e CTA</li>
+            <li><span class="check">✔</span> Integração com WhatsApp, formulário ou checkout</li>
+            <li><span class="check">✔</span> Design alinhado com a tua identidade visual</li>
+          </ul>
+          <div class="addon-preco">Sob consulta</div>
+          <a href="https://wa.me/SEU_NUMERO?text=Quero%20conversar%20sobre%20uma%20landing%20page" class="btn-plano outline">Vamos conversar</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPARATIVO ─── -->
+  <section class="comparativo">
+    <div class="container">
+      <p class="section-label">Comparativo</p>
+      <h2 class="section-title">Qual plano é o certo pra ti?</h2>
+      <p class="section-sub">Vê lado a lado o que cada plano entrega.</p>
+      <div class="tabela-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>O que está incluído</th>
+              <th>Base<br/><small>R$ 790</small></th>
+              <th class="verde">Essencial<br/><small>R$ 1.200</small></th>
+              <th>Avançado<br/><small>R$ 1.800</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Artes por mês</td>
+              <td>8 simples</td>
+              <td>8 profissionais</td>
+              <td>12 profissionais</td>
+            </tr>
+            <tr>
+              <td>Design pelo Pedro</td>
+              <td><span class="nao">✗</span></td>
+              <td><span class="sim">✔</span></td>
+              <td><span class="sim">✔</span></td>
+            </tr>
+            <tr>
+              <td>Tráfego pago (Meta Ads)</td>
+              <td>Impulsionamento</td>
+              <td>Campanha básica</td>
+              <td>Estratégia avançada</td>
+            </tr>
+            <tr>
+              <td>Múltiplos públicos</td>
+              <td><span class="nao">✗</span></td>
+              <td><span class="nao">✗</span></td>
+              <td><span class="sim">✔</span></td>
+            </tr>
+            <tr>
+              <td>Planejamento de conteúdo</td>
+              <td>Básico</td>
+              <td>Mensal</td>
+              <td>Tático</td>
+            </tr>
+            <tr>
+              <td>Sugestão de Stories</td>
+              <td><span class="nao">✗</span></td>
+              <td><span class="nao">✗</span></td>
+              <td><span class="sim">✔</span></td>
+            </tr>
+            <tr>
+              <td>Relatório de resultados</td>
+              <td>Simples</td>
+              <td>Completo</td>
+              <td>Dashboard + plano</td>
+            </tr>
+            <tr>
+              <td>Consultoria mensal (WhatsApp)</td>
+              <td><span class="nao">✗</span></td>
+              <td><span class="nao">✗</span></td>
+              <td><span class="sim">✔</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── POR QUE EU ─── -->
+  <section class="porque-eu">
+    <div class="container">
+      <p class="section-label">Por que eu</p>
+      <h2 class="section-title">Marketing de cidade real, pra negócio real</h2>
+      <p class="section-sub">Não faço marketing engomadinho de agência grande. Trabalho com negócios locais que precisam de resultado.</p>
+      <div class="grid-motivos">
+        <div class="card-motivo">
+          <div class="icon">🏙️</div>
+          <strong>Conheço a realidade local</strong>
+          <p>Sei como funciona vender pra cidade pequena, interior e região. Não é igual a São Paulo.</p>
+        </div>
+        <div class="card-motivo">
+          <div class="icon">📱</div>
+          <strong>Conteúdo + Tráfego</strong>
+          <p>Não cuido só de post bonito. Cuido de post que traz cliente, junto com anúncio que converte.</p>
+        </div>
+        <div class="card-motivo">
+          <div class="icon">🎙️</div>
+          <strong>Te ajudo a destravar</strong>
+          <p>Aparecer em vídeo, falar da tua oferta e parar de ter vergonha de vender. Isso faz parte.</p>
+        </div>
+        <div class="card-motivo">
+          <div class="icon">📈</div>
+          <strong>Foco em resultado</strong>
+          <p>A meta não é só ter feed bonito. É encher o direct, fechar agenda e aumentar faturamento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA FINAL ─── -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>Próximo passo: vamos tirar teu negócio do <span>"perfil parado"</span> e colocar o Instagram pra trabalhar por ti.</h2>
+      <p>Me chama no WhatsApp, me conta em duas frases o que tu vende e em que cidade tu tá, que eu te digo qual plano faz mais sentido pro teu momento.</p>
+      <a href="https://wa.me/SEU_NUMERO?text=Oi%20Pedro%2C%20quero%20saber%20qual%20plano%20%C3%A9%20o%20certo%20pra%20mim" class="btn-hero">💬 Falar com o Pedro no WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <p>Feito por <span>Pedro</span> — Social Media & Tráfego Pago · Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
