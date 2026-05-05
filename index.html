@@ -163,7 +163,7 @@
       color: var(--verde);
     }
 
-    /* SEÇÕES BASE */
+    /* SEÇÕES */
     .section { padding: 90px 20px; }
     .section-dark { padding: 90px 20px; background: var(--cinza-escuro); }
 
@@ -470,10 +470,7 @@
 
     .addon-items li:last-child { border-bottom: none; }
 
-    .addon-items li .check {
-      color: var(--verde);
-      flex-shrink: 0;
-    }
+    .addon-items li .check { color: var(--verde); flex-shrink: 0; }
 
     .addon-preco {
       font-size: 1.8rem;
@@ -493,7 +490,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
-      align-items: center;
+      align-items: start;
       margin-top: 50px;
     }
 
@@ -525,11 +522,23 @@
       border: 1px solid rgba(255,255,255,0.06);
       border-left: 3px solid var(--verde);
       border-radius: 12px;
-      padding: 18px 20px;
+      padding: 20px 22px;
+      transition: all 0.3s;
     }
 
-    .motivo-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-    .motivo-card p { font-size: 0.85rem; color: var(--texto-suave); }
+    .motivo-card:hover {
+      border-color: var(--verde);
+      background: rgba(46,204,113,0.04);
+    }
+
+    .motivo-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--branco);
+    }
+
+    .motivo-card p { font-size: 0.85rem; color: var(--texto-suave); line-height: 1.6; }
 
     /* CTA FINAL */
     .cta-section {
@@ -663,7 +672,7 @@
             <li class="categoria">📊 Relatório</li>
             <li><span class="check">✓</span> Prints de métricas + 2 observações mensais</li>
           </ul>
-          <a href="https://wa.me/5555991011436?text=Oi%20Pedro!%20Quero%20o%20Plano%2001%20–%20Presen%C3%A7a%20Digital%20(R%24%20790%2Fm%C3%AAs).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" class="plano-btn borda">
+          <a href="https://wa.me/5555991011436?text=Oi%20Pedro!%20Quero%20o%20Plano%2001%20%E2%80%93%20Presen%C3%A7a%20Digital%20(R%24%20790%2Fm%C3%AAs).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" class="plano-btn borda">
             Quero o Plano 01
           </a>
         </div>
@@ -692,7 +701,7 @@
             <li class="categoria">📊 Relatório</li>
             <li><span class="check">✓</span> Alcance, cliques e taxa de conversão</li>
           </ul>
-          <a href="https://wa.me/5555991011436?text=Oi%20Pedro!%20Quero%20o%20Plano%2002%20–%20Marketing%20Estruturado%20(R%24%201.200%2Fm%C3%AAs).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" class="plano-btn verde">
+          <a href="https://wa.me/5555991011436?text=Oi%20Pedro!%20Quero%20o%20Plano%2002%20%E2%80%93%20Marketing%20Estruturado%20(R%24%201.200%2Fm%C3%AAs).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" class="plano-btn verde">
             Quero o Plano 02
           </a>
         </div>
@@ -722,7 +731,7 @@
             <li class="categoria">🎁 Bônus</li>
             <li><span class="check">✓</span> 1 consultoria de 30min/mês no WhatsApp</li>
           </ul>
-          <a href="https://wa.me/5555991011436?text=Oi%20Pedro!%20Quero%20o%20Plano%2003%20–%20Performance%20%26%20Crescimento%20(R%24%201.800%2Fm%C3%AAs).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" class="plano-btn borda">
+          <a href="https://wa.me/5555991011436?text=Oi%20Pedro!%20Quero%20o%20Plano%2003%20%E2%80%93%20Performance%20%26%20Crescimento%20(R%24%201.800%2Fm%C3%AAs).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" class="plano-btn borda">
             Quero o Plano 03
           </a>
         </div>
@@ -757,7 +766,7 @@
               <td>12 profissionais</td>
             </tr>
             <tr>
-              <td>Designer profissional</td>
+              <td>Designer profissional (Pedro)</td>
               <td><span class="nao">✗</span></td>
               <td><span class="sim">✓</span></td>
               <td><span class="sim">✓</span></td>
@@ -888,33 +897,45 @@
   <section class="section">
     <div class="container">
       <div class="porqueeu-grid">
+
         <div class="porqueeu-left">
           <div class="section-label">Por que fechar comigo</div>
           <h2>Marketing de vida real,<br><span style="color:var(--verde)">não de agência grande.</span></h2>
           <p>Eu não faço marketing engomadinho. Trabalho com negócios reais, de cidade real, que precisam de resultado e não de firula.</p>
-          <p>Já saí de R$ 1.200 pra R$ 5.500 por mês em 2 meses trabalhando com internet. Eu vivi o que ensino — e agora ajudo outros negócios a fazerem o mesmo.</p>
+          <p>Meu trabalho é <strong style="color:var(--branco)">totalmente personalizado</strong>: cada cliente tem uma estratégia pensada pro seu momento, pro seu público e pro seu problema específico. Não existe "pacote padrão" por aqui.</p>
+          <p>Eu não te deixo largado depois de fechar. Gosto de manter <strong style="color:var(--branco)">conversas frequentes</strong>, entender o que está acontecendo no teu negócio no dia a dia e ajustar a estratégia junto contigo sempre que necessário.</p>
           <a href="https://wa.me/5555991011436?text=Oi%20Pedro!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20marketing%20pro%20meu%20neg%C3%B3cio." target="_blank" class="btn-primary" style="margin-top:28px; display:inline-flex;">
             💬 Bora conversar
           </a>
         </div>
+
         <div class="motivos">
           <div class="motivo-card">
-            <h4>📍 Negócios locais são meu foco</h4>
-            <p>Conheço a realidade de quem vende numa cidade de interior e precisa de resultado concreto, não só de curtida.</p>
+            <h4>🎯 100% personalizado pra teu negócio</h4>
+            <p>Não existe fórmula pronta. Eu entendo teu problema, teu público e teu momento antes de propor qualquer estratégia. O que funciona pra uma doceria não é o mesmo que funciona pra uma pousada.</p>
+          </div>
+          <div class="motivo-card">
+            <h4>💬 Conversa diária com o cliente</h4>
+            <p>Tu não vai ficar no escuro esperando o relatório do mês. Mantenho contato frequente, te atualizo sobre o que está sendo feito e ouço o que está acontecendo no teu balcão, na tua agenda e no teu caixa.</p>
+          </div>
+          <div class="motivo-card">
+            <h4>🔄 Estratégia que se adapta</h4>
+            <p>O mercado muda, o cliente muda, a demanda muda. Não fico engessado num plano que não funciona mais. Ajusto a rota junto contigo sempre que precisar, sem burocracia.</p>
+          </div>
+          <div class="motivo-card">
+            <h4>📍 Foco em negócios locais</h4>
+            <p>Conheço a realidade de quem vende numa cidade de interior. Não trago estratégia de agência grande que não se aplica ao teu dia a dia. Trabalho com o que realmente funciona pra tua região e teu público.</p>
           </div>
           <div class="motivo-card">
             <h4>🎯 Conteúdo + tráfego juntos</h4>
-            <p>Não trabalho só com post bonito nem só com anúncio. As duas coisas, com estratégia real.</p>
+            <p>Não cuido só de post bonito, nem só de anúncio isolado. Trabalho as duas frentes juntas, com estratégia real, pra cada real investido gerar o máximo de resultado possível.</p>
           </div>
           <div class="motivo-card">
-            <h4>💬 Script + diagnóstico + landing page</h4>
-            <p>Além da gestão, te ajudo a destravar o atendimento e criar páginas que vendem por ti.</p>
-          </div>
-          <div class="motivo-card">
-            <h4>🔥 Sem enrolação</h4>
-            <p>Comunicação direta, relatório claro e entrega no prazo. Sem jargão e sem promessa vazia.</p>
+            <h4>🔥 Sem enrolação, sem promessa vazia</h4>
+            <p>Comunicação direta, relatório claro, entrega no prazo. Se não estiver funcionando, eu sou o primeiro a te dizer — e o primeiro a propor o ajuste.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
